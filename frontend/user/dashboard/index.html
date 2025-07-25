@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutri Guru - Smart Nutrition Dashboard</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 min-h-screen font-poppins">
+    
+    <!-- Navigation Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-lg border-b border-green-100 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-leaf text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+                            Nutri Guru
+                        </h1>
+                        <p class="text-sm text-gray-600">Your Smart Nutrition Companion</p>
+                    </div>
+                </div>
+                
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                        <i class="fas fa-home mr-2"></i>Dashboard
+                    </a>
+                    <a href="#photo-analysis" class="nav-link" data-section="photo-analysis">
+                        <i class="fas fa-camera mr-2"></i>Photo Analysis
+                    </a>
+                    <a href="#diet-plan" class="nav-link" data-section="diet-plan">
+                        <i class="fas fa-calendar-alt mr-2"></i>Diet Plans
+                    </a>
+                    <a href="#expert-chat" class="nav-link" data-section="expert-chat">
+                        <i class="fas fa-comments mr-2"></i>Expert Chat
+                    </a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+                    <div class="notification-icon relative">
+                        <i class="fas fa-bell text-gray-600 text-xl cursor-pointer hover:text-green-600 transition-colors"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </div>
+                    <div class="profile-menu relative">
+                        <img src="../public/assets/bitmojis/user-avatar.gif" alt="Profile" class="w-10 h-10 rounded-full cursor-pointer border-2 border-green-300 hover:border-green-500 transition-colors">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex min-h-screen">
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            
+            <!-- Dashboard Section -->
+            <section id="dashboard-content" class="section-content active">
+                <div class="mb-8">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-2">Welcome back! 👋</h2>
+                    <p class="text-gray-600">Let's track your nutrition journey today</p>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="stat-card bg-gradient-to-r from-green-400 to-green-600">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-green-100 text-sm">Today's Calories</p>
+                                <p class="text-white text-3xl font-bold" id="calories-count">0</p>
+                                <p class="text-green-100 text-xs">Goal: 2000 kcal</p>
+                            </div>
+                            <div class="text-white text-4xl opacity-80">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                        </div>
+                        <div class="progress-bar mt-4">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card bg-gradient-to-r from-blue-400 to-blue-600">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-blue-100 text-sm">Water Intake</p>
+                                <p class="text-white text-3xl font-bold" id="water-count">0</p>
+                                <p class="text-blue-100 text-xs">Goal: 8 glasses</p>
+                            </div>
+                            <div class="text-white text-4xl opacity-80">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                        </div>
+                        <div class="progress-bar mt-4">
+                            <div class="progress-fill bg-blue-300" style="width: 40%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card bg-gradient-to-r from-purple-400 to-purple-600">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-purple-100 text-sm">Protein</p>
+                                <p class="text-white text-3xl font-bold" id="protein-count">0</p>
+                                <p class="text-purple-100 text-xs">Goal: 120g</p>
+                            </div>
+                            <div class="text-white text-4xl opacity-80">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                        </div>
+                        <div class="progress-bar mt-4">
+                            <div class="progress-fill bg-purple-300" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card bg-gradient-to-r from-orange-400 to-orange-600">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-orange-100 text-sm">Meals Logged</p>
+                                <p class="text-white text-3xl font-bold" id="meals-count">0</p>
+                                <p class="text-orange-100 text-xs">Today</p>
+                            </div>
+                            <div class="text-white text-4xl opacity-80">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="action-card" data-action="photo-analysis">
+                        <div class="action-icon bg-gradient-to-r from-green-400 to-emerald-500">
+                            <i class="fas fa-camera text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Scan Food</h3>
+                        <p class="text-gray-600 text-sm mb-4">Upload photo to analyze nutrients</p>
+                        <button class="action-btn bg-green-500 hover:bg-green-600">
+                            <i class="fas fa-arrow-right mr-2"></i>Start Scan
+                        </button>
+                    </div>
+
+                    <div class="action-card" data-action="diet-plan">
+                        <div class="action-icon bg-gradient-to-r from-blue-400 to-cyan-500">
+                            <i class="fas fa-calendar-week text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Weekly Plan</h3>
+                        <p class="text-gray-600 text-sm mb-4">Generate personalized diet plan</p>
+                        <button class="action-btn bg-blue-500 hover:bg-blue-600">
+                            <i class="fas fa-arrow-right mr-2"></i>Create Plan
+                        </button>
+                    </div>
+
+                    <div class="action-card" data-action="expert-chat">
+                        <div class="action-icon bg-gradient-to-r from-purple-400 to-pink-500">
+                            <i class="fas fa-user-md text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Ask Expert</h3>
+                        <p class="text-gray-600 text-sm mb-4">Chat with nutrition experts</p>
+                        <button class="action-btn bg-purple-500 hover:bg-purple-600">
+                            <i class="fas fa-arrow-right mr-2"></i>Chat Now
+                        </button>
+                    </div>
+
+                    <div class="action-card" data-action="track-meal">
+                        <div class="action-icon bg-gradient-to-r from-orange-400 to-red-500">
+                            <i class="fas fa-plus text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Log Meal</h3>
+                        <p class="text-gray-600 text-sm mb-4">Manually add food items</p>
+                        <button class="action-btn bg-orange-500 hover:bg-orange-600">
+                            <i class="fas fa-arrow-right mr-2"></i>Add Food
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Analysis Section -->
+            <section id="photo-analysis-content" class="section-content">
+                <div class="mb-8">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-2">Food Photo Analysis 📸</h2>
+                    <p class="text-gray-600">Upload a photo of your food to get instant nutrition information</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <div class="upload-area" id="upload-area">
+                        <div class="upload-content">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt text-6xl text-gray-400 mb-4"></i>
+                            </div>
+                            <h3 class="text-2xl font-semibold text-gray-700 mb-2">Drop your food photo here</h3>
+                            <p class="text-gray-500 mb-6">or click to browse your files</p>
+                            <button class="upload-btn" id="upload-btn">
+                                <i class="fas fa-camera mr-2"></i>Choose Photo
+                            </button>
+                            <input type="file" id="file-input" accept="image/*" class="hidden">
+                        </div>
+                    </div>
+
+                    <div class="analysis-result hidden" id="analysis-result">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-semibold text-gray-800">Nutrition Analysis</h3>
+                            <button class="btn-secondary" id="new-analysis">
+                                <i class="fas fa-redo mr-2"></i>Analyze Another
+                            </button>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div class="uploaded-image">
+                                <img id="preview-image" src="" alt="Uploaded food" class="w-full h-64 object-cover rounded-lg">
+                            </div>
+                            
+                            <div class="nutrition-info">
+                                <h4 class="text-xl font-semibold mb-4 text-gray-800">Detected: <span id="food-name" class="text-green-600">Analyzing...</span></h4>
+                                
+                                <div class="nutrition-grid">
+                                    <div class="nutrition-item">
+                                        <span class="nutrition-label">Calories</span>
+                                        <span class="nutrition-value" id="analyzed-calories">Loading...</span>
+                                    </div>
+                                    <div class="nutrition-item">
+                                        <span class="nutrition-label">Protein</span>
+                                        <span class="nutrition-value" id="analyzed-protein">Loading...</span>
+                                    </div>
+                                    <div class="nutrition-item">
+                                        <span class="nutrition-label">Carbs</span>
+                                        <span class="nutrition-value" id="analyzed-carbs">Loading...</span>
+                                    </div>
+                                    <div class="nutrition-item">
+                                        <span class="nutrition-label">Fat</span>
+                                        <span class="nutrition-value" id="analyzed-fat">Loading...</span>
+                                    </div>
+                                    <div class="nutrition-item">
+                                        <span class="nutrition-label">Fiber</span>
+                                        <span class="nutrition-value" id="analyzed-fiber">Loading...</span>
+                                    </div>
+                                    <div class="nutrition-item">
+                                        <span class="nutrition-label">Sugar</span>
+                                        <span class="nutrition-value" id="analyzed-sugar">Loading...</span>
+                                    </div>
+                                </div>
+
+                                <button class="btn-primary w-full mt-6" id="add-to-diary">
+                                    <i class="fas fa-plus mr-2"></i>Add to Food Diary
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diet Plan Section -->
+            <section id="diet-plan-content" class="section-content">
+                <div class="mb-8">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-2">Weekly Diet Plan 📅</h2>
+                    <p class="text-gray-600">Get personalized meal plans based on your goals and preferences</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Plan Generator -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-2xl shadow-xl p-6 sticky top-24">
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Plan Preferences</h3>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Goal</label>
+                                    <select class="form-select" id="diet-goal">
+                                        <option value="weight-loss">Weight Loss</option>
+                                        <option value="muscle-gain">Muscle Gain</option>
+                                        <option value="maintenance">Maintenance</option>
+                                        <option value="athletic">Athletic Performance</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Dietary Preference</label>
+                                    <select class="form-select" id="diet-type">
+                                        <option value="balanced">Balanced</option>
+                                        <option value="vegetarian">Vegetarian</option>
+                                        <option value="vegan">Vegan</option>
+                                        <option value="keto">Ketogenic</option>
+                                        <option value="paleo">Paleo</option>
+                                        <option value="mediterranean">Mediterranean</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Daily Calories</label>
+                                    <input type="range" min="1200" max="3000" value="2000" class="form-range" id="calorie-range">
+                                    <div class="flex justify-between text-sm text-gray-500">
+                                        <span>1200</span>
+                                        <span id="calorie-display">2000</span>
+                                        <span>3000</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Allergies & Restrictions</label>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="allergy-tag" data-allergy="nuts">Nuts</span>
+                                        <span class="allergy-tag" data-allergy="dairy">Dairy</span>
+                                        <span class="allergy-tag" data-allergy="gluten">Gluten</span>
+                                        <span class="allergy-tag" data-allergy="seafood">Seafood</span>
+                                    </div>
+                                </div>
+
+                                <button class="btn-primary w-full" id="generate-plan">
+                                    <i class="fas fa-magic mr-2"></i>Generate Plan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generated Plan -->
+                    <div class="lg:col-span-2">
+                        <div class="bg-white rounded-2xl shadow-xl p-6">
+                            <div class="loading-state" id="plan-loading">
+                                <div class="text-center py-12">
+                                    <div class="loading-spinner mx-auto mb-4"></div>
+                                    <p class="text-gray-600">Creating your personalized diet plan...</p>
+                                </div>
+                            </div>
+
+                            <div class="plan-result hidden" id="plan-result">
+                                <div class="flex items-center justify-between mb-6">
+                                    <h3 class="text-2xl font-semibold text-gray-800">Your 7-Day Plan</h3>
+                                    <div class="flex space-x-2">
+                                        <button class="btn-secondary" id="download-plan">
+                                            <i class="fas fa-download mr-2"></i>Download
+                                        </button>
+                                        <button class="btn-secondary" id="share-plan">
+                                            <i class="fas fa-share mr-2"></i>Share
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="week-tabs mb-6">
+                                    <button class="week-tab active" data-day="monday">Mon</button>
+                                    <button class="week-tab" data-day="tuesday">Tue</button>
+                                    <button class="week-tab" data-day="wednesday">Wed</button>
+                                    <button class="week-tab" data-day="thursday">Thu</button>
+                                    <button class="week-tab" data-day="friday">Fri</button>
+                                    <button class="week-tab" data-day="saturday">Sat</button>
+                                    <button class="week-tab" data-day="sunday">Sun</button>
+                                </div>
+
+                                <div class="day-content" id="day-content">
+                                    <!-- Day content will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expert Chat Section -->
+            <section id="expert-chat-content" class="section-content">
+                <div class="mb-8">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-2">Expert Consultation 👨‍⚕️</h2>
+                    <p class="text-gray-600">Connect with certified nutritionists and dietitians</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                    <!-- Expert List -->
+                    <div class="lg:col-span-1">
+                        <div class="bg-white rounded-2xl shadow-xl p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-4">Available Experts</h3>
+                            
+                            <div class="space-y-4" id="expert-list">
+                                <!-- Expert cards will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Chat Interface -->
+                    <div class="lg:col-span-3">
+                        <div class="bg-white rounded-2xl shadow-xl h-96 flex flex-col">
+                            <div class="chat-header">
+                                <div class="flex items-center space-x-3">
+                                    <img src="../public/assets/bitmojis/expert-1.gif" alt="Expert" class="w-10 h-10 rounded-full">
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Dr. Sarah Johnson</h4>
+                                        <p class="text-sm text-green-600">
+                                            <i class="fas fa-circle text-xs mr-1"></i>Online
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chat-messages flex-1" id="chat-messages">
+                                <!-- Messages will be populated by JavaScript -->
+                            </div>
+
+                            <div class="chat-input">
+                                <div class="flex space-x-3">
+                                    <input type="text" placeholder="Type your question..." class="form-input flex-1" id="message-input">
+                                    <button class="btn-primary" id="send-message">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Side Panel -->
+        <aside class="w-80 bg-white/80 backdrop-blur-md border-l border-gray-200 p-6 overflow-y-auto">
+            <div class="sticky top-6">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Daily Tips 💡</h3>
+                
+                <div class="space-y-6" id="daily-tips">
+                    <!-- Tips will be populated by JavaScript -->
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="mt-8 p-4 bg-gradient-to-r from-green-100 to-blue-100 rounded-xl">
+                    <h4 class="font-semibold text-gray-800 mb-3">Today's Summary</h4>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Calories</span>
+                            <span class="font-semibold">1,340 / 2,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Water</span>
+                            <span class="font-semibold">3 / 8 glasses</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Steps</span>
+                            <span class="font-semibold">8,247 / 10,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="fab" id="quick-add-fab">
+            <i class="fas fa-plus text-2xl"></i>
+        </button>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner-large"></div>
+            <p class="mt-4 text-white text-lg">Processing...</p>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

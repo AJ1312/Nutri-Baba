@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutri Guru - Modern Dashboard</title>
+    <link rel="stylesheet" href="modern-dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Nutri Guru</span>
+            </div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item active" data-section="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </li>
+            <li class="nav-item" data-section="photo-analysis">
+                <i class="fas fa-camera"></i>
+                <span>Scan Food</span>
+            </li>
+            <li class="nav-item" data-section="meal-plan">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Meal Plan</span>
+            </li>
+            <li class="nav-item" data-section="expert-chat">
+                <i class="fas fa-comments"></i>
+                <span>Expert Chat</span>
+            </li>
+            <li class="nav-item" data-section="progress">
+                <i class="fas fa-chart-line"></i>
+                <span>Progress</span>
+            </li>
+        </ul>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="avatar">
+                    <img src="../public/assets/bitmojis/user-avatar.gif" alt="User">
+                </div>
+                <div class="user-info">
+                    <span class="name">John Doe</span>
+                    <span class="status">Premium Member</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <h1 class="page-title">Dashboard</h1>
+                <p class="page-subtitle">Welcome back! Here's your nutrition overview</p>
+            </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search foods, recipes...">
+                </div>
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="content-section active">
+            <!-- Personal Greeting -->
+            <div class="greeting-section">
+                <div class="greeting-card">
+                    <div class="greeting-content">
+                        <h1>Hey, John! 👋</h1>
+                        <p>Welcome back to your nutrition journey. You're doing great!</p>
+                        <div class="greeting-stats">
+                            <span class="streak">🔥 5 day streak</span>
+                            <span class="level">Level 12</span>
+                        </div>
+                    </div>
+                    <div class="greeting-avatar">
+                        <img src="assets/bitmojis/user-avatar.gif" alt="User Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Advice Today -->
+            <div class="health-advice-section">
+                <div class="advice-card">
+                    <div class="advice-header">
+                        <div class="advice-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="advice-title">
+                            <h3>Health Advice Today</h3>
+                            <span class="advice-date">July 26, 2025</span>
+                        </div>
+                    </div>
+                    <div class="advice-content">
+                        <p class="main-advice">💧 Start your day with a glass of warm lemon water to boost metabolism and aid digestion.</p>
+                        <div class="advice-tips">
+                            <div class="tip-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Drink 8-10 glasses of water throughout the day</span>
+                            </div>
+                            <div class="tip-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Include protein in every meal for sustained energy</span>
+                            </div>
+                            <div class="tip-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Take a 10-minute walk after each meal for better digestion</span>
+                            </div>
+                        </div>
+                        <div class="advice-footer">
+                            <button class="advice-btn">
+                                <i class="fas fa-bookmark"></i>
+                                Save Tip
+                            </button>
+                            <button class="advice-btn secondary">
+                                <i class="fas fa-share"></i>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions-section">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <div class="action-card scan-food" data-action="scan-food">
+                        <div class="action-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h3>Scan Food</h3>
+                        <p>Take a photo of your meal to get instant nutrition analysis</p>
+                        <div class="action-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="action-card meal-plan" data-action="meal-plan">
+                        <div class="action-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>Meal Planner</h3>
+                        <p>Generate personalized weekly meal plans based on your goals</p>
+                        <div class="action-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="action-card ask-expert" data-action="ask-expert">
+                        <div class="action-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Ask Expert</h3>
+                        <p>Get professional advice from certified nutritionists</p>
+                        <div class="action-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="action-card track-progress" data-action="track-progress">
+                        <div class="action-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Track Progress</h3>
+                        <p>Monitor your health journey with detailed analytics</p>
+                        <div class="action-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Stats Overview -->
+            <div class="health-stats-section">
+                <h2>Your Health Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card calories">
+                    <div class="stat-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="calories-count">1,247</h3>
+                        <p>Calories Today</p>
+                        <span class="stat-change positive">+12% from yesterday</span>
+                    </div>
+                    <div class="stat-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 62%"></div>
+                        </div>
+                        <span class="progress-text">62% of goal</span>
+                    </div>
+                </div>
+
+                <div class="stat-card protein">
+                    <div class="stat-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="protein-count">89</h3>
+                        <p>Protein (g)</p>
+                        <span class="stat-change positive">+5g from yesterday</span>
+                    </div>
+                    <div class="stat-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 74%"></div>
+                        </div>
+                        <span class="progress-text">74% of goal</span>
+                    </div>
+                </div>
+
+                <div class="stat-card water">
+                    <div class="stat-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="water-count">6</h3>
+                        <p>Glasses Water</p>
+                        <span class="stat-change neutral">2 more to go</span>
+                    </div>
+                    <div class="stat-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <span class="progress-text">75% of goal</span>
+                    </div>
+                </div>
+
+                <div class="stat-card meals">
+                    <div class="stat-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 id="meals-count">3</h3>
+                        <p>Meals Logged</p>
+                        <span class="stat-change positive">Great progress!</span>
+                    </div>
+                    <div class="stat-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-text">Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon breakfast">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Breakfast Logged</h4>
+                            <p>Greek yogurt with berries - 320 cal</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon water">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Hydration Goal</h4>
+                            <p>6 glasses completed - 2 more to go</p>
+                            <span class="activity-time">30 minutes ago</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon expert">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Expert Response</h4>
+                            <p>Dr. Sarah replied to your question</p>
+                            <span class="activity-time">1 hour ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Analysis Section -->
+        <section id="photo-analysis-section" class="content-section">
+            <div class="section-header">
+                <h2>Food Photo Analysis</h2>
+                <p>Upload a photo to get instant nutrition information</p>
+            </div>
+
+            <div class="upload-container">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drop your food photo here</h3>
+                        <p>or click to browse</p>
+                        <button class="upload-btn" id="upload-btn">Choose Photo</button>
+                        <input type="file" id="file-input" accept="image/*" hidden>
+                    </div>
+                </div>
+
+                <div class="analysis-result" id="analysis-result" style="display: none;">
+                    <div class="result-header">
+                        <h3>Analysis Complete</h3>
+                        <button class="btn-secondary" id="new-analysis">New Analysis</button>
+                    </div>
+                    
+                    <div class="result-content">
+                        <div class="food-image">
+                            <img id="preview-image" src="" alt="Analyzed food">
+                        </div>
+                        
+                        <div class="nutrition-details">
+                            <h4 id="food-name">Detected Food</h4>
+                            <div class="nutrition-grid">
+                                <div class="nutrition-item">
+                                    <span class="label">Calories</span>
+                                    <span class="value" id="analyzed-calories">Loading...</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="label">Protein</span>
+                                    <span class="value" id="analyzed-protein">Loading...</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="label">Carbs</span>
+                                    <span class="value" id="analyzed-carbs">Loading...</span>
+                                </div>
+                                <div class="nutrition-item">
+                                    <span class="label">Fat</span>
+                                    <span class="value" id="analyzed-fat">Loading...</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary" id="add-to-diary">Add to Diary</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meal Plan Section -->
+        <section id="meal-plan-section" class="content-section">
+            <div class="section-header">
+                <h2>Weekly Meal Plan</h2>
+                <p>Create a personalized meal plan based on your goals</p>
+            </div>
+
+            <div class="meal-plan-container">
+                <div class="plan-generator">
+                    <h3>Plan Preferences</h3>
+                    <form class="plan-form">
+                        <div class="form-group">
+                            <label>Goal</label>
+                            <select id="diet-goal">
+                                <option value="weight-loss">Weight Loss</option>
+                                <option value="muscle-gain">Muscle Gain</option>
+                                <option value="maintenance">Maintenance</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Diet Type</label>
+                            <select id="diet-type">
+                                <option value="balanced">Balanced</option>
+                                <option value="vegetarian">Vegetarian</option>
+                                <option value="vegan">Vegan</option>
+                                <option value="keto">Ketogenic</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Daily Calories: <span id="calorie-display">2000</span></label>
+                            <input type="range" id="calorie-range" min="1200" max="3000" value="2000">
+                        </div>
+
+                        <button type="button" class="btn-primary" id="generate-plan">Generate Plan</button>
+                    </form>
+                </div>
+
+                <div class="plan-result">
+                    <div class="loading-state" id="plan-loading" style="display: none;">
+                        <div class="loader"></div>
+                        <p>Creating your personalized meal plan...</p>
+                    </div>
+
+                    <div class="plan-content" id="plan-content">
+                        <div class="week-navigation">
+                            <button class="day-tab active" data-day="monday">Mon</button>
+                            <button class="day-tab" data-day="tuesday">Tue</button>
+                            <button class="day-tab" data-day="wednesday">Wed</button>
+                            <button class="day-tab" data-day="thursday">Thu</button>
+                            <button class="day-tab" data-day="friday">Fri</button>
+                            <button class="day-tab" data-day="saturday">Sat</button>
+                            <button class="day-tab" data-day="sunday">Sun</button>
+                        </div>
+
+                        <div class="day-meals" id="day-meals">
+                            <!-- Day content will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expert Chat Section -->
+        <section id="expert-chat-section" class="content-section">
+            <div class="section-header">
+                <h2>Expert Consultation</h2>
+                <p>Connect with certified nutrition professionals</p>
+            </div>
+
+            <div class="chat-container">
+                <div class="experts-sidebar">
+                    <h3>Available Experts</h3>
+                    <div class="experts-list" id="experts-list">
+                        <!-- Expert cards will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="chat-main">
+                    <div class="chat-header">
+                        <div class="expert-info">
+                            <img src="../public/assets/bitmojis/expert-1.gif" alt="Expert">
+                            <div>
+                                <h4>Dr. Sarah Johnson</h4>
+                                <span class="status online">Online</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Messages populated by JavaScript -->
+                    </div>
+
+                    <div class="chat-input">
+                        <input type="text" id="message-input" placeholder="Type your message...">
+                        <button id="send-message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section id="progress-section" class="content-section">
+            <div class="section-header">
+                <h2>Progress Tracking</h2>
+                <p>Monitor your nutrition journey over time</p>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-charts">
+                    <div class="chart-card">
+                        <h3>Weekly Calories</h3>
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Chart visualization coming soon</p>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Macronutrients</h3>
+                        <div class="chart-placeholder">
+                            <i class="fas fa-chart-pie"></i>
+                            <p>Macro breakdown chart</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="achievements">
+                    <h3>Achievements</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement-item earned">
+                            <i class="fas fa-trophy"></i>
+                            <span>7-Day Streak</span>
+                        </div>
+                        <div class="achievement-item earned">
+                            <i class="fas fa-star"></i>
+                            <span>Goal Crusher</span>
+                        </div>
+                        <div class="achievement-item">
+                            <i class="fas fa-medal"></i>
+                            <span>30-Day Challenge</span>
+                        </div>
+                        <div class="achievement-item">
+                            <i class="fas fa-crown"></i>
+                            <span>Nutrition Master</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Daily Tips Sidebar -->
+    <aside class="tips-sidebar">
+        <h3>Daily Tips</h3>
+        <div class="tips-container" id="daily-tips">
+            <!-- Tips populated by JavaScript -->
+        </div>
+
+        <div class="quick-stats">
+            <h4>Today's Summary</h4>
+            <div class="stat-row">
+                <span>Calories</span>
+                <span>1,247 / 2,000</span>
+            </div>
+            <div class="stat-row">
+                <span>Protein</span>
+                <span>89g / 120g</span>
+            </div>
+            <div class="stat-row">
+                <span>Water</span>
+                <span>6 / 8 glasses</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Floating Action Button -->
+    <button class="fab" id="quick-add-fab">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="modern-dashboard.js"></script>
+</body>
+</html>

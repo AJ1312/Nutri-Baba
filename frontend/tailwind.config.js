@@ -4,7 +4,8 @@ module.exports = {
     "./frontend/**/*.{html,js}",
     "./frontend/public/**/*.{html,js}",
     "./frontend/user/**/*.{html,js}",
-    "./frontend/admin/**/*.{html,js}"
+    "./frontend/admin/**/*.{html,js}",
+    "./frontend/dashboard/**/*.{html,js}"
   ],
   theme: {
     extend: {
