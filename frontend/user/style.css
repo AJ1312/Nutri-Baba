@@ -1,0 +1,33 @@
+/* User Dashboard Custom Styles */
+
+.nutrition-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.nutrition-card:hover {
+    transform: translateY(-2px);
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+    height: 8px;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}

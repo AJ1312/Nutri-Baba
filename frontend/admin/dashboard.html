@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Nutri-Guru</title>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-green-600 text-white">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl font-bold">Admin Dashboard</h1>
+                <nav class="flex space-x-4">
+                    <a href="../public/index.html" class="hover:text-green-200">Home</a>
+                    <a href="#" class="hover:text-green-200">Settings</a>
+                    <a href="#" class="hover:text-green-200">Logout</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-gray-700">Total Users</h3>
+                <p class="text-3xl font-bold text-green-600" id="totalUsers">0</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-gray-700">Active Sessions</h3>
+                <p class="text-3xl font-bold text-blue-600" id="activeSessions">0</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-gray-700">Meal Plans</h3>
+                <p class="text-3xl font-bold text-purple-600" id="mealPlans">0</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-gray-700">API Calls</h3>
+                <p class="text-3xl font-bold text-orange-600" id="apiCalls">0</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4">User Management</h3>
+                <div class="space-y-3">
+                    <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition duration-200">
+                        View All Users
+                    </button>
+                    <button class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded transition duration-200">
+                        Add New User
+                    </button>
+                    <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded transition duration-200">
+                        User Analytics
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4">Content Management</h3>
+                <div class="space-y-3">
+                    <button class="w-full bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded transition duration-200">
+                        Manage Recipes
+                    </button>
+                    <button class="w-full bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded transition duration-200">
+                        Nutrition Database
+                    </button>
+                    <button class="w-full bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded transition duration-200">
+                        AI Model Settings
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
