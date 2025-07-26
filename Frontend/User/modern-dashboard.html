@@ -35,16 +35,20 @@
                 <i class="fas fa-comments"></i>
                 <span>Expert Chat</span>
             </li>
-            <li class="nav-item" data-section="progress">
-                <i class="fas fa-chart-line"></i>
-                <span>Progress</span>
+            <li class="nav-item" data-section="post-query">
+                <i class="fas fa-question-circle"></i>
+                <span>Post Query</span>
+            </li>
+            <li class="nav-item" data-section="profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
             </li>
         </ul>
         
         <div class="sidebar-footer">
             <div class="user-profile">
                 <div class="avatar">
-                    <img src="../public/assets/bitmojis/user-avatar.gif" alt="User">
+                    <img src="https://pbs.twimg.com/media/DX4CPvhXcAEQ-7Y.png" alt="User">
                 </div>
                 <div class="user-info">
                     <span class="name">John Doe</span>
@@ -87,13 +91,9 @@
                     <div class="greeting-content">
                         <h1>Hey, John! 👋</h1>
                         <p>Welcome back to your nutrition journey. You're doing great!</p>
-                        <div class="greeting-stats">
-                            <span class="streak">🔥 5 day streak</span>
-                            <span class="level">Level 12</span>
-                        </div>
                     </div>
                     <div class="greeting-avatar">
-                        <img src="assets/bitmojis/user-avatar.gif" alt="User Avatar">
+                        <img src="https://pbs.twimg.com/media/DX4CPvhXcAEQ-7Y.png" alt="User Avatar">
                     </div>
                 </div>
             </div>
@@ -130,17 +130,6 @@
                         </div>
                         <h3>Ask Expert</h3>
                         <p>Get professional advice from certified nutritionists</p>
-                        <div class="action-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-
-                    <div class="action-card track-progress" data-action="track-progress">
-                        <div class="action-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Track Progress</h3>
-                        <p>Monitor your health journey with detailed analytics</p>
                         <div class="action-arrow">
                             <i class="fas fa-arrow-right"></i>
                         </div>
@@ -320,9 +309,11 @@
 
             <div class="chat-container">
                 <div class="experts-sidebar">
-                    <h3>Available Experts</h3>
-                    <div class="experts-list" id="experts-list">
-                        <!-- Expert cards will be populated by JavaScript -->
+                    <div class="experts-content">
+                        <h3>Available Experts</h3>
+                        <div class="experts-list" id="experts-list">
+                            <!-- Expert cards will be populated by JavaScript -->
+                        </div>
                     </div>
                 </div>
 
@@ -334,6 +325,16 @@
                                 <h4>Dr. Sarah Johnson</h4>
                                 <span class="status online">Online</span>
                             </div>
+                        </div>
+                        <div class="chat-actions">
+                            <button class="call-btn" id="video-call-btn">
+                                <i class="fas fa-video"></i>
+                                Video Call
+                            </button>
+                            <button class="call-btn audio" id="audio-call-btn">
+                                <i class="fas fa-phone"></i>
+                                Audio Call
+                            </button>
                         </div>
                     </div>
 
@@ -351,50 +352,422 @@
             </div>
         </section>
 
-        <!-- Progress Section -->
-        <section id="progress-section" class="content-section">
+        <!-- Post Query Section -->
+        <section id="post-query-section" class="content-section">
             <div class="section-header">
-                <h2>Progress Tracking</h2>
-                <p>Monitor your nutrition journey over time</p>
+                <h2>Post Your Health Query</h2>
+                <p>Ask your health-related questions and get answers from qualified health advisors</p>
             </div>
 
-            <div class="progress-container">
-                <div class="progress-charts">
-                    <div class="chart-card">
-                        <h3>Weekly Calories</h3>
-                        <div class="chart-placeholder">
-                            <i class="fas fa-chart-line"></i>
-                            <p>Chart visualization coming soon</p>
+            <div class="simple-query-container">
+                <form class="simple-query-form" id="post-query-form">
+                    <div class="form-group">
+                        <label for="health-concern">Select Your Health Concern *</label>
+                        <select id="health-concern" name="concern" required>
+                            <option value="">Choose a health concern</option>
+                            <option value="weight-loss">🎯 Weight Loss</option>
+                            <option value="weight-gain">📈 Weight Gain</option>
+                            <option value="nutrition">🥗 General Nutrition</option>
+                            <option value="diet-planning">📅 Diet Planning</option>
+                            <option value="supplements">💊 Supplements & Vitamins</option>
+                            <option value="fitness-nutrition">🏃‍♂️ Fitness & Nutrition</option>
+                            <option value="digestive-health">🔄 Digestive Health</option>
+                            <option value="diabetes">🩺 Diabetes Management</option>
+                            <option value="heart-health">❤️ Heart Health</option>
+                            <option value="food-allergies">⚠️ Food Allergies</option>
+                            <option value="pregnancy-nutrition">🤱 Pregnancy Nutrition</option>
+                            <option value="children-nutrition">👶 Children's Nutrition</option>
+                            <option value="elderly-nutrition">👴 Elderly Nutrition</option>
+                            <option value="other">❓ Other Health Concern</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="query-text">Write Your Query *</label>
+                        <textarea 
+                            id="query-text" 
+                            name="query" 
+                            placeholder="Please describe your health concern or question in detail. Include any relevant information like age, gender, current diet, health conditions, etc. to help health advisors provide the best advice."
+                            rows="8" 
+                            maxlength="2000" 
+                            required
+                        ></textarea>
+                        <div class="char-counter">
+                            <span class="current">0</span>/2000 characters
                         </div>
                     </div>
 
-                    <div class="chart-card">
-                        <h3>Macronutrients</h3>
-                        <div class="chart-placeholder">
-                            <i class="fas fa-chart-pie"></i>
-                            <p>Macro breakdown chart</p>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Post Query
+                        </button>
+                    </div>
+                </form>
+
+                <div class="query-info">
+                    <div class="info-card">
+                        <h4>📋 How it works</h4>
+                        <ul>
+                            <li>Select your health concern from the dropdown</li>
+                            <li>Write your detailed query</li>
+                            <li>Health advisors will see and respond to your query</li>
+                            <li>Check back for professional advice and recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="content-section">
+            <div class="section-header">
+                <h2>User Profile</h2>
+                <p>Manage your account and preferences</p>
+            </div>
+
+            <div class="profile-container">
+                                <div class="form-group">
+                                    <label for="query-category">Category *</label>
+                                    <select id="query-category" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="weight-management">🏃‍♀️ Weight Management</option>
+                                        <option value="muscle-building">💪 Muscle Building</option>
+                                        <option value="general-nutrition">🥗 General Nutrition</option>
+                                        <option value="meal-planning">📋 Meal Planning</option>
+                                        <option value="supplements">💊 Supplements & Vitamins</option>
+                                        <option value="medical-nutrition">🏥 Medical Nutrition</option>
+                                        <option value="sports-nutrition">⚽ Sports Nutrition</option>
+                                        <option value="recipes-cooking">👨‍� Recipes & Cooking</option>
+                                        <option value="pregnancy-nutrition">🤱 Pregnancy Nutrition</option>
+                                        <option value="child-nutrition">👶 Child Nutrition</option>
+                                        <option value="senior-nutrition">👴 Senior Nutrition</option>
+                                        <option value="vegan-vegetarian">🌱 Vegan/Vegetarian</option>
+                                        <option value="food-allergies">🚫 Food Allergies</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="urgency-level">Urgency Level</label>
+                                    <select id="urgency-level" name="urgency">
+                                        <option value="low">📅 General inquiry</option>
+                                        <option value="medium">⏰ Need answer soon</option>
+                                        <option value="high">🚨 Urgent concern</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label for="query-description">Detailed Description *</label>
+                                    <textarea id="query-description" name="description" placeholder="Please provide detailed information about your question. Include your goals, current situation, any relevant health conditions, age, gender, and activity level to get the most accurate advice." rows="6" maxlength="1000" required></textarea>
+                                    <div class="char-counter"><span class="current">0</span>/1000</div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="query-tags">Tags (Optional)</label>
+                                    <input type="text" id="query-tags" name="tags" placeholder="e.g., protein, weight-loss, meal-prep">
+                                    <div class="tag-suggestions" id="tag-suggestions"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="target-audience">Who can help?</label>
+                                    <select id="target-audience" name="audience">
+                                        <option value="everyone">🌍 Everyone (Community + Experts)</option>
+                                        <option value="experts-only">👨‍⚕️ Experts Only</option>
+                                        <option value="community-only">👥 Community Only</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-options">
+                                <div class="option-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="anonymous-post" name="anonymous">
+                                        <span class="checkmark"></span>
+                                        <span class="label-text">Post anonymously</span>
+                                    </label>
+                                    <div class="option-help">Your identity will be hidden</div>
+                                </div>
+
+                                <div class="option-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="email-notifications" name="notifications" checked>
+                                        <span class="checkmark"></span>
+                                        <span class="label-text">Email me responses</span>
+                                    </label>
+                                    <div class="option-help">Get notified when someone answers</div>
+                                </div>
+
+                                <div class="option-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="allow-follow-up" name="followUp" checked>
+                                        <span class="checkmark"></span>
+                                        <span class="label-text">Allow follow-up questions</span>
+                                    </label>
+                                    <div class="option-help">Others can ask related questions</div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" id="save-draft">
+                                    <i class="fas fa-save"></i>
+                                    Save Draft
+                                </button>
+                                <button type="submit" class="btn-primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Post Question
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Quick Ask Form -->
+                    <div class="query-form-container" id="quick-form">
+                        <div class="quick-ask-container">
+                            <div class="quick-categories-grid">
+                                <div class="quick-category" data-category="calories">
+                                    <div class="category-icon">🔥</div>
+                                    <div class="category-name">Calories</div>
+                                    <div class="category-desc">Daily intake, deficit, surplus</div>
+                                </div>
+                                <div class="quick-category" data-category="protein">
+                                    <div class="category-icon">🥩</div>
+                                    <div class="category-name">Protein</div>
+                                    <div class="category-desc">Sources, timing, amounts</div>
+                                </div>
+                                <div class="quick-category" data-category="hydration">
+                                    <div class="category-icon">💧</div>
+                                    <div class="category-name">Hydration</div>
+                                    <div class="category-desc">Water intake, timing</div>
+                                </div>
+                                <div class="quick-category" data-category="snacks">
+                                    <div class="category-icon">🍎</div>
+                                    <div class="category-name">Snacks</div>
+                                    <div class="category-desc">Healthy options, timing</div>
+                                </div>
+                                <div class="quick-category" data-category="supplements">
+                                    <div class="category-icon">💊</div>
+                                    <div class="category-name">Supplements</div>
+                                    <div class="category-desc">What to take, when</div>
+                                </div>
+                                <div class="quick-category" data-category="timing">
+                                    <div class="category-icon">⏰</div>
+                                    <div class="category-name">Meal Timing</div>
+                                    <div class="category-desc">When to eat, frequency</div>
+                                </div>
+                            </div>
+
+                            <form class="quick-query-form" id="quick-query-form">
+                                <div class="quick-input-group">
+                                    <textarea id="quick-question" name="question" placeholder="Ask a quick nutrition question..." maxlength="300" rows="3"></textarea>
+                                    <div class="quick-char-counter"><span class="current">0</span>/300</div>
+                                </div>
+                                <div class="quick-actions">
+                                    <button type="submit" class="btn-quick">
+                                        <i class="fas fa-bolt"></i>
+                                        Quick Ask
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
 
-                <div class="achievements">
-                    <h3>Achievements</h3>
-                    <div class="achievement-grid">
-                        <div class="achievement-item earned">
-                            <i class="fas fa-trophy"></i>
-                            <span>7-Day Streak</span>
+                <!-- Query Feed Panel -->
+                <div class="query-feed-panel">
+                    <div class="feed-header">
+                        <h3>Community Questions</h3>
+                        <div class="feed-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="recent">Recent</button>
+                            <button class="filter-btn" data-filter="trending">Trending</button>
+                            <button class="filter-btn" data-filter="unanswered">Unanswered</button>
+                            <button class="filter-btn" data-filter="my-questions">My Questions</button>
                         </div>
-                        <div class="achievement-item earned">
-                            <i class="fas fa-star"></i>
-                            <span>Goal Crusher</span>
+                    </div>
+
+                    <div class="feed-content">
+                        <div class="query-stats-bar">
+                            <div class="stat-item">
+                                <span class="stat-number" id="total-questions">0</span>
+                                <span class="stat-label">Total Questions</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="answered-questions">0</span>
+                                <span class="stat-label">Answered</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="my-questions-count">0</span>
+                                <span class="stat-label">My Questions</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="expert-responses">0</span>
+                                <span class="stat-label">Expert Responses</span>
+                            </div>
                         </div>
-                        <div class="achievement-item">
-                            <i class="fas fa-medal"></i>
-                            <span>30-Day Challenge</span>
+
+                        <div class="query-feed" id="query-feed">
+                            <!-- Questions will be populated here -->
+                            <div class="empty-feed">
+                                <div class="empty-icon">💭</div>
+                                <h4>No questions yet</h4>
+                                <p>Be the first to ask a nutrition question!</p>
+                            </div>
                         </div>
-                        <div class="achievement-item">
-                            <i class="fas fa-crown"></i>
-                            <span>Nutrition Master</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Help Button -->
+            <div class="floating-help">
+                <button class="help-btn" id="query-help">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+                <div class="help-tooltip">Need help posting a question?</div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="content-section">
+            <div class="section-header">
+                <h2>User Profile</h2>
+                <p>Manage your account and preferences</p>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="https://pbs.twimg.com/media/DX4CPvhXcAEQ-7Y.png" alt="Profile Picture" id="profile-picture">
+                            <button class="avatar-edit-btn" id="avatar-edit-btn">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                            <input type="file" id="avatar-input" accept="image/*" hidden>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profile-name">John Doe</h3>
+                            <p id="profile-email">john.doe@email.com</p>
+                            <span class="profile-status">Premium Member</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="personal">Personal Info</button>
+                        <button class="tab-btn" data-tab="preferences">Preferences</button>
+                        <button class="tab-btn" data-tab="goals">Goals</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Personal Info Tab -->
+                        <div class="tab-panel active" id="personal-tab">
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" id="full-name" value="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="email" value="john.doe@email.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" id="phone" value="+1 (555) 123-4567">
+                                </div>
+                                <div class="form-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" id="dob" value="1990-01-01">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select id="gender">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                        <option value="prefer-not-to-say">Prefer not to say</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+
+                        <!-- Preferences Tab -->
+                        <div class="tab-panel" id="preferences-tab">
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label>Diet Type</label>
+                                    <select id="diet-preference">
+                                        <option value="balanced">Balanced</option>
+                                        <option value="vegetarian">Vegetarian</option>
+                                        <option value="vegan">Vegan</option>
+                                        <option value="keto">Ketogenic</option>
+                                        <option value="paleo">Paleo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Food Allergies</label>
+                                    <input type="text" id="allergies" placeholder="e.g., Nuts, Dairy, Gluten">
+                                </div>
+                                <div class="form-group">
+                                    <label>Notification Preferences</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" checked>
+                                            <span>Meal reminders</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" checked>
+                                            <span>Expert messages</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox">
+                                            <span>Weekly reports</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-primary">Save Preferences</button>
+                            </form>
+                        </div>
+
+                        <!-- Goals Tab -->
+                        <div class="tab-panel" id="goals-tab">
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label>Primary Goal</label>
+                                    <select id="primary-goal">
+                                        <option value="weight-loss">Weight Loss</option>
+                                        <option value="weight-gain">Weight Gain</option>
+                                        <option value="muscle-gain">Muscle Gain</option>
+                                        <option value="maintenance">Maintenance</option>
+                                        <option value="general-health">General Health</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Current Weight (kg)</label>
+                                    <input type="number" id="current-weight" value="70" min="30" max="300">
+                                </div>
+                                <div class="form-group">
+                                    <label>Target Weight (kg)</label>
+                                    <input type="number" id="target-weight" value="65" min="30" max="300">
+                                </div>
+                                <div class="form-group">
+                                    <label>Height (cm)</label>
+                                    <input type="number" id="height" value="175" min="100" max="250">
+                                </div>
+                                <div class="form-group">
+                                    <label>Activity Level</label>
+                                    <select id="activity-level">
+                                        <option value="sedentary">Sedentary</option>
+                                        <option value="light">Lightly Active</option>
+                                        <option value="moderate">Moderately Active</option>
+                                        <option value="very">Very Active</option>
+                                        <option value="extra">Extra Active</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-primary">Update Goals</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -456,22 +829,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="quick-stats">
-            <h4>Today's Summary</h4>
-            <div class="stat-row">
-                <span>Calories</span>
-                <span>1,247 / 2,000</span>
-            </div>
-            <div class="stat-row">
-                <span>Protein</span>
-                <span>89g / 120g</span>
-            </div>
-            <div class="stat-row">
-                <span>Water</span>
-                <span>6 / 8 glasses</span>
-            </div>
-        </div>
     </aside>
 
     <!-- Floating Action Button -->
@@ -481,6 +838,44 @@
 
     <!-- Toast Notifications -->
     <div class="toast-container" id="toast-container"></div>
+
+    <!-- WebRTC Call Modal -->
+    <div class="call-modal" id="call-modal" style="display: none;">
+        <div class="call-content">
+            <div class="call-header">
+                <div class="expert-info">
+                    <img src="../public/assets/bitmojis/expert-1.gif" alt="Expert">
+                    <div>
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p class="call-status">Connecting...</p>
+                    </div>
+                </div>
+                <button class="call-minimize" id="call-minimize">
+                    <i class="fas fa-minus"></i>
+                </button>
+            </div>
+            
+            <div class="video-container">
+                <video id="remote-video" autoplay playsinline></video>
+                <video id="local-video" autoplay playsinline muted></video>
+            </div>
+            
+            <div class="call-controls">
+                <button class="control-btn" id="toggle-video">
+                    <i class="fas fa-video"></i>
+                </button>
+                <button class="control-btn" id="toggle-audio">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button class="control-btn screen-share" id="screen-share">
+                    <i class="fas fa-desktop"></i>
+                </button>
+                <button class="control-btn end-call" id="end-call">
+                    <i class="fas fa-phone-slash"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script src="modern-dashboard.js"></script>
 </body>
