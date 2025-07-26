@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutri Guru - Modern Dashboard</title>
+    <title>Nutri Baba - Modern Dashboard</title>
     <link rel="stylesheet" href="modern-dashboard.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         <div class="sidebar-header">
             <div class="logo">
                 <i class="fas fa-leaf"></i>
-                <span>Nutri Guru</span>
+                <span>Nutri Baba</span>
             </div>
         </div>
         
@@ -180,118 +180,6 @@
                         <p>Monitor your health journey with detailed analytics</p>
                         <div class="action-arrow">
                             <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Health Stats Overview -->
-            <div class="health-stats-section">
-                <h2>Your Health Overview</h2>
-            <div class="stats-grid">
-                <div class="stat-card calories">
-                    <div class="stat-icon">
-                        <i class="fas fa-fire"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 id="calories-count">1,247</h3>
-                        <p>Calories Today</p>
-                        <span class="stat-change positive">+12% from yesterday</span>
-                    </div>
-                    <div class="stat-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 62%"></div>
-                        </div>
-                        <span class="progress-text">62% of goal</span>
-                    </div>
-                </div>
-
-                <div class="stat-card protein">
-                    <div class="stat-icon">
-                        <i class="fas fa-dumbbell"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 id="protein-count">89</h3>
-                        <p>Protein (g)</p>
-                        <span class="stat-change positive">+5g from yesterday</span>
-                    </div>
-                    <div class="stat-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 74%"></div>
-                        </div>
-                        <span class="progress-text">74% of goal</span>
-                    </div>
-                </div>
-
-                <div class="stat-card water">
-                    <div class="stat-icon">
-                        <i class="fas fa-tint"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 id="water-count">6</h3>
-                        <p>Glasses Water</p>
-                        <span class="stat-change neutral">2 more to go</span>
-                    </div>
-                    <div class="stat-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 75%"></div>
-                        </div>
-                        <span class="progress-text">75% of goal</span>
-                    </div>
-                </div>
-
-                <div class="stat-card meals">
-                    <div class="stat-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3 id="meals-count">3</h3>
-                        <p>Meals Logged</p>
-                        <span class="stat-change positive">Great progress!</span>
-                    </div>
-                    <div class="stat-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 100%"></div>
-                        </div>
-                        <span class="progress-text">Complete</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recent Activity -->
-            <div class="recent-activity">
-                <h2>Recent Activity</h2>
-                <div class="activity-list">
-                    <div class="activity-item">
-                        <div class="activity-icon breakfast">
-                            <i class="fas fa-sun"></i>
-                        </div>
-                        <div class="activity-content">
-                            <h4>Breakfast Logged</h4>
-                            <p>Greek yogurt with berries - 320 cal</p>
-                            <span class="activity-time">2 hours ago</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon water">
-                            <i class="fas fa-tint"></i>
-                        </div>
-                        <div class="activity-content">
-                            <h4>Hydration Goal</h4>
-                            <p>6 glasses completed - 2 more to go</p>
-                            <span class="activity-time">30 minutes ago</span>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="activity-icon expert">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <div class="activity-content">
-                            <h4>Expert Response</h4>
-                            <p>Dr. Sarah replied to your question</p>
-                            <span class="activity-time">1 hour ago</span>
                         </div>
                     </div>
                 </div>
@@ -509,11 +397,59 @@
         </section>
     </main>
 
-    <!-- Daily Tips Sidebar -->
-    <aside class="tips-sidebar">
-        <h3>Daily Tips</h3>
-        <div class="tips-container" id="daily-tips">
-            <!-- Tips populated by JavaScript -->
+    <!-- Fun Facts Sidebar -->
+    <aside class="fun-facts-sidebar">
+        <h3>Fun Nutrition Facts</h3>
+        <div class="facts-container" id="fun-facts">
+            <div class="fact-card" style="background: linear-gradient(135deg, var(--primary-500), var(--primary-600));">
+                <div class="fact-icon">
+                    <i class="fas fa-apple-alt"></i>
+                </div>
+                <div class="fact-content">
+                    <h4>Did you know?</h4>
+                    <p>Apples float in water because they are 25% air!</p>
+                </div>
+            </div>
+
+            <div class="fact-card" style="background: linear-gradient(135deg, #10b981, #059669);">
+                <div class="fact-icon">
+                    <i class="fas fa-carrot"></i>
+                </div>
+                <div class="fact-content">
+                    <h4>Amazing Fact!</h4>
+                    <p>Carrots were originally purple, not orange!</p>
+                </div>
+            </div>
+
+            <div class="fact-card" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+                <div class="fact-icon">
+                    <i class="fas fa-cheese"></i>
+                </div>
+                <div class="fact-content">
+                    <h4>Dairy Delight!</h4>
+                    <p>It takes 10 pounds of milk to make 1 pound of cheese!</p>
+                </div>
+            </div>
+
+            <div class="fact-card" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                <div class="fact-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div class="fact-content">
+                    <h4>Green Power!</h4>
+                    <p>Broccoli contains more protein per calorie than steak!</p>
+                </div>
+            </div>
+
+            <div class="fact-card" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                <div class="fact-icon">
+                    <i class="fas fa-pepper-hot"></i>
+                </div>
+                <div class="fact-content">
+                    <h4>Spicy Science!</h4>
+                    <p>Spicy foods can boost your metabolism by up to 8%!</p>
+                </div>
+            </div>
         </div>
 
         <div class="quick-stats">
