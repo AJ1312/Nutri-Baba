@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriBaba - Complete Your Profile</title>
+    <link rel="stylesheet" href="../static/css/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>NutriBaba</h1>
+                </div>
+                <nav class="nav">
+                    <a href="/dashboard" class="nav-link">
+                        <i class="fas fa-arrow-left"></i>
+                        Back to Dashboard
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <h2 class="hero-title">Complete Your Profile</h2>
+                    <p class="hero-subtitle">Help us personalize your nutrition journey with some basic information about you.</p>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <form id="profileForm" class="profile-form">
+                    <div class="form-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-user card-icon"></i>
+                                Personal Information
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="age" class="form-label">Age *</label>
+                                    <input type="number" id="age" name="age" class="form-input" min="13" max="120" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender" class="form-label">Gender *</label>
+                                    <select id="gender" name="gender" class="form-select" required>
+                                        <option value="">Select your gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                        <option value="prefer-not-to-say">Prefer not to say</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-weight card-icon"></i>
+                                Physical Measurements
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="height" class="form-label">Height (cm) *</label>
+                                    <input type="number" id="height" name="height" class="form-input" min="100" max="250" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="weight" class="form-label">Current Weight (kg) *</label>
+                                    <input type="number" id="weight" name="weight" class="form-input" min="30" max="300" step="0.1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="targetWeight" class="form-label">Target Weight (kg)</label>
+                                    <input type="number" id="targetWeight" name="targetWeight" class="form-input" min="30" max="300" step="0.1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="activityLevel" class="form-label">Activity Level *</label>
+                                    <select id="activityLevel" name="activityLevel" class="form-select" required>
+                                        <option value="">Select your activity level</option>
+                                        <option value="sedentary">Sedentary (little to no exercise)</option>
+                                        <option value="lightly_active">Lightly Active (light exercise 1-3 days/week)</option>
+                                        <option value="moderately_active">Moderately Active (moderate exercise 3-5 days/week)</option>
+                                        <option value="very_active">Very Active (hard exercise 6-7 days/week)</option>
+                                        <option value="extremely_active">Extremely Active (very hard exercise, physical job)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="bmiDisplay" class="bmi-display hidden">
+                                <div class="bmi-card">
+                                    <span class="bmi-label">Your BMI:</span>
+                                    <span id="bmiValue" class="bmi-value">-</span>
+                                    <span id="bmiCategory" class="bmi-category">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-heartbeat card-icon"></i>
+                                Health Information
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label class="form-label">Current Health Conditions</label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="healthConditions" value="diabetes" class="checkbox">
+                                        <span class="checkbox-label">Diabetes</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="healthConditions" value="hypertension" class="checkbox">
+                                        <span class="checkbox-label">High Blood Pressure</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="healthConditions" value="heart_disease" class="checkbox">
+                                        <span class="checkbox-label">Heart Disease</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="healthConditions" value="high_cholesterol" class="checkbox">
+                                        <span class="checkbox-label">High Cholesterol</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="healthConditions" value="thyroid" class="checkbox">
+                                        <span class="checkbox-label">Thyroid Disorder</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="healthConditions" value="none" class="checkbox">
+                                        <span class="checkbox-label">None of the above</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="medications" class="form-label">Current Medications & Supplements</label>
+                                <textarea id="medications" name="medications" class="form-textarea" rows="3" placeholder="List any medications, vitamins, or supplements you're currently taking..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-utensils card-icon"></i>
+                                Dietary Preferences
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="dietType" class="form-label">Diet Type *</label>
+                                    <select id="dietType" name="dietType" class="form-select" required>
+                                        <option value="">Select your diet type</option>
+                                        <option value="omnivore">Omnivore (eat everything)</option>
+                                        <option value="vegetarian">Vegetarian</option>
+                                        <option value="vegan">Vegan</option>
+                                        <option value="pescatarian">Pescatarian</option>
+                                        <option value="keto">Ketogenic</option>
+                                        <option value="paleo">Paleo</option>
+                                        <option value="mediterranean">Mediterranean</option>
+                                        <option value="low_carb">Low Carb</option>
+                                        <option value="intermittent_fasting">Intermittent Fasting</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mealsPerDay" class="form-label">Meals Per Day</label>
+                                    <select id="mealsPerDay" name="mealsPerDay" class="form-select">
+                                        <option value="">Select...</option>
+                                        <option value="2">2 meals</option>
+                                        <option value="3">3 meals</option>
+                                        <option value="4">4 meals</option>
+                                        <option value="5">5+ meals</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Food Allergies & Intolerances *</label>
+                                <div class="checkbox-grid">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="allergies" value="nuts" class="checkbox">
+                                        <span class="checkbox-label">Tree Nuts</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="allergies" value="peanuts" class="checkbox">
+                                        <span class="checkbox-label">Peanuts</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="allergies" value="dairy" class="checkbox">
+                                        <span class="checkbox-label">Dairy/Lactose</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="allergies" value="gluten" class="checkbox">
+                                        <span class="checkbox-label">Gluten</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="allergies" value="eggs" class="checkbox">
+                                        <span class="checkbox-label">Eggs</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="allergies" value="shellfish" class="checkbox">
+                                        <span class="checkbox-label">Shellfish</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="allergies" value="none" class="checkbox">
+                                        <span class="checkbox-label">No Allergies</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="foodDislikes" class="form-label">Foods You Dislike or Avoid</label>
+                                <textarea id="foodDislikes" name="foodDislikes" class="form-textarea" rows="2" placeholder="List any foods you dislike or prefer to avoid..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-target card-icon"></i>
+                                Goals & Lifestyle
+                            </h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="primaryGoal" class="form-label">Primary Goal *</label>
+                                    <select id="primaryGoal" name="primaryGoal" class="form-select" required>
+                                        <option value="">Select your primary goal</option>
+                                        <option value="weight_loss">Weight Loss</option>
+                                        <option value="weight_gain">Weight Gain</option>
+                                        <option value="muscle_gain">Muscle Gain</option>
+                                        <option value="maintenance">Weight Maintenance</option>
+                                        <option value="general_health">General Health Improvement</option>
+                                        <option value="athletic_performance">Athletic Performance</option>
+                                        <option value="medical_condition">Managing Medical Condition</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="waterIntake" class="form-label">Daily Water Intake</label>
+                                    <select id="waterIntake" name="waterIntake" class="form-select">
+                                        <option value="">Select...</option>
+                                        <option value="1-3">1-3 glasses</option>
+                                        <option value="4-6">4-6 glasses</option>
+                                        <option value="7-8">7-8 glasses</option>
+                                        <option value="9+">9+ glasses</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sleepHours" class="form-label">Sleep Hours Per Night</label>
+                                    <select id="sleepHours" name="sleepHours" class="form-select">
+                                        <option value="">Select...</option>
+                                        <option value="less-than-5">Less than 5 hours</option>
+                                        <option value="5-6">5-6 hours</option>
+                                        <option value="7-8">7-8 hours</option>
+                                        <option value="9+">9+ hours</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stressLevel" class="form-label">Stress Level</label>
+                                    <select id="stressLevel" name="stressLevel" class="form-select">
+                                        <option value="">Select...</option>
+                                        <option value="low">Low</option>
+                                        <option value="moderate">Moderate</option>
+                                        <option value="high">High</option>
+                                        <option value="very_high">Very High</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-submit">
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <i class="fas fa-check-circle"></i>
+                            <span class="btn-text">Complete My Profile</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <div id="successModal" class="modal hidden">
+        <div class="modal-overlay" onclick="closeSuccessModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-check-circle text-green"></i>
+                    Profile Created Successfully!
+                </h3>
+            </div>
+            <div class="modal-body">
+                <p>Your profile has been saved. We're excited to help you on your nutrition journey!</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeSuccessModal()" class="btn btn-primary">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Creating your profile...</p>
+        </div>
+    </div>
+
+    <script src="../static/js/profile.js"></script>
+</body>
+</html>
