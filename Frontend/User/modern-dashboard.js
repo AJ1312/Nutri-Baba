@@ -70,6 +70,149 @@ class ModernNutriGuru {
         
         // Progress tracking
         this.setupProgressTracking();
+        
+        // Interactive dashboard character
+        this.setupInteractiveCharacter();
+    }
+    
+    setupInteractiveCharacter() {
+        const character = document.querySelector('.character-emoji');
+        if (!character) return;
+        
+        const emojis = [
+            'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44b.svg', // waving
+            'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f60a.svg', // smiling
+            'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f60d.svg', // heart eyes
+            'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f973.svg', // party
+            'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f44d.svg', // thumbs up
+            'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f389.svg', // party popper
+        ];
+        
+        let currentEmojiIndex = 0;
+        
+        // Click interaction
+        character.addEventListener('click', () => {
+            currentEmojiIndex = (currentEmojiIndex + 1) % emojis.length;
+            character.src = emojis[currentEmojiIndex];
+            
+            // Add a fun click animation
+            character.style.animation = 'none';
+            character.offsetHeight; // Trigger reflow
+            character.style.animation = 'bounce 0.6s ease-in-out';
+            
+            // Create flowing emoji animation
+            this.createFlowingEmojis();
+            
+            // Show a fun message
+            this.showCharacterMessage();
+        });
+        
+        // Auto-change emoji every 10 seconds
+        setInterval(() => {
+            if (!character.matches(':hover')) {
+                currentEmojiIndex = (currentEmojiIndex + 1) % emojis.length;
+                character.src = emojis[currentEmojiIndex];
+            }
+        }, 10000);
+        
+        // Hover interactions
+        character.addEventListener('mouseenter', () => {
+            const messages = [
+                "Hey there! 🌟",
+                "Looking good today! ✨",
+                "Ready for a healthy day? 💪",
+                "You're awesome! 🎉",
+                "Let's crush those goals! 🚀"
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            this.showToast(randomMessage, 'info', 2000);
+        });
+    }
+    
+    showCharacterMessage() {
+        const messages = [
+            "Great job on staying healthy! 🎉",
+            "You're doing amazing! Keep it up! 💪",
+            "Nutrition goals loading... 🚀",
+            "High five for healthy choices! ✋",
+            "You're a wellness superstar! ⭐",
+            "Healthy vibes activated! ✨"
+        ];
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        this.showToast(randomMessage, 'success', 3000);
+    }
+    
+    createFlowingEmojis() {
+        const flowingEmojis = [
+            '🌟', '✨', '💫', '⭐', '🎉', '🎊', '💖', '💝', 
+            '🥗', '🍎', '🥕', '🥬', '🫐', '🍇', '🥑', '🍊',
+            '💪', '🔥', '🚀', '⚡', '💯', '✅', '🎯', '🏆'
+        ];
+        
+        const numEmojis = Math.floor(Math.random() * 8) + 5; // 5-12 emojis
+        
+        for (let i = 0; i < numEmojis; i++) {
+            setTimeout(() => {
+                this.createSingleFlowingEmoji(flowingEmojis);
+            }, i * 150); // Stagger the emoji creation
+        }
+    }
+    
+    createSingleFlowingEmoji(emojiArray) {
+        const emoji = document.createElement('div');
+        const randomEmoji = emojiArray[Math.floor(Math.random() * emojiArray.length)];
+        
+        emoji.textContent = randomEmoji;
+        emoji.className = 'flowing-emoji';
+        
+        // Random starting position from the character
+        const character = document.querySelector('.character-emoji');
+        const characterRect = character.getBoundingClientRect();
+        
+        // Set initial position near the character
+        emoji.style.position = 'fixed';
+        emoji.style.left = characterRect.left + 'px';
+        emoji.style.top = characterRect.top + 'px';
+        emoji.style.fontSize = Math.random() * 20 + 15 + 'px'; // 15-35px
+        emoji.style.zIndex = '9999';
+        emoji.style.pointerEvents = 'none';
+        emoji.style.userSelect = 'none';
+        
+        // Random animation direction and properties
+        const directions = [
+            { x: Math.random() * 400 - 200, y: -Math.random() * 300 - 100 }, // Up variations
+            { x: Math.random() * 300 + 100, y: -Math.random() * 200 - 50 },  // Up-right
+            { x: -Math.random() * 300 - 100, y: -Math.random() * 200 - 50 }, // Up-left
+            { x: Math.random() * 200 - 100, y: Math.random() * 200 + 100 }   // Down variations
+        ];
+        
+        const direction = directions[Math.floor(Math.random() * directions.length)];
+        const duration = Math.random() * 2000 + 1500; // 1.5-3.5 seconds
+        const rotation = Math.random() * 720 - 360; // -360 to 360 degrees
+        
+        // Add to page
+        document.body.appendChild(emoji);
+        
+        // Animate
+        emoji.animate([
+            {
+                transform: 'translate(0, 0) rotate(0deg) scale(1)',
+                opacity: 1
+            },
+            {
+                transform: `translate(${direction.x}px, ${direction.y}px) rotate(${rotation}deg) scale(0.5)`,
+                opacity: 0
+            }
+        ], {
+            duration: duration,
+            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+            fill: 'forwards'
+        }).onfinish = () => {
+            // Clean up
+            if (emoji.parentNode) {
+                emoji.parentNode.removeChild(emoji);
+            }
+        };
     }
     
     showSection(sectionId) {
