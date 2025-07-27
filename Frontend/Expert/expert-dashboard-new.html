@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutri Baba - Expert Dashboard</title>
+    <link rel="stylesheet" href="expert-dashboard-new.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Nutri Baba Expert</span>
+            </div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item active" data-section="dashboard">
+                <i class="fas fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </li>
+            <li class="nav-item" data-section="earnings">
+                <i class="fas fa-dollar-sign"></i>
+                <span>Earnings</span>
+            </li>
+            <li class="nav-item" data-section="patients">
+                <i class="fas fa-users"></i>
+                <span>Patients</span>
+            </li>
+            <li class="nav-item" data-section="queries">
+                <i class="fas fa-question-circle"></i>
+                <span>Queries</span>
+            </li>
+            <li class="nav-item" data-section="consultation">
+                <i class="fas fa-video"></i>
+                <span>Consultation</span>
+            </li>
+            <li class="nav-item" data-section="profile">
+                <i class="fas fa-user-md"></i>
+                <span>Profile</span>
+            </li>
+        </ul>
+        
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <div class="avatar">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face" alt="Expert">
+                </div>
+                <div class="user-info">
+                    <span class="name">Dr. Sarah Johnson</span>
+                    <span class="status">Certified Nutritionist</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <div class="page-title-container">
+                    <h1 class="page-title">Expert Dashboard</h1>
+                </div>
+                <p class="page-subtitle">Welcome back! Manage your practice and help your patients</p>
+            </div>
+            <div class="header-right">
+                <!-- Header actions can be added here if needed -->
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="content-section active">
+            <!-- Personal Greeting -->
+            <div class="greeting-section">
+                <div class="greeting-card">
+                    <div class="greeting-content">
+                        <h1>Hey, Dr. Sarah! 👋</h1>
+                        <p>Welcome back to your expert dashboard. Ready to help your patients today!</p>
+                    </div>
+                    <div class="greeting-avatar">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face" alt="Expert Avatar">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="stats-section">
+                <h2>Today's Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card earnings">
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>$2,450</h3>
+                            <p>Monthly Earnings</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card patients">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>127</h3>
+                            <p>Active Patients</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card queries">
+                        <div class="stat-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>34</h3>
+                            <p>Pending Queries</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card consultations">
+                        <div class="stat-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>8</h3>
+                            <p>Today's Sessions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions-section">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <div class="action-card" data-action="new-consultation">
+                        <div class="action-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Start Consultation</h3>
+                        <p>Begin a video consultation with a patient</p>
+                        <div class="action-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="action-card" data-action="answer-queries">
+                        <div class="action-icon">
+                            <i class="fas fa-reply"></i>
+                        </div>
+                        <h3>Answer Queries</h3>
+                        <p>Respond to patient questions and concerns</p>
+                        <div class="action-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="action-card" data-action="view-patients">
+                        <div class="action-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>View Patients</h3>
+                        <p>Check patient profiles and progress</p>
+                        <div class="action-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post Daily Health Advice -->
+            <div class="health-advice-section">
+                <div class="advice-card">
+                    <div class="advice-header">
+                        <div class="advice-icon pulse">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="advice-title">
+                            <h3>Post Daily Health Advice</h3>
+                            <span class="advice-date">Share wisdom with your patients</span>
+                        </div>
+                    </div>
+                    <div class="advice-content">
+                        <form class="advice-form" id="daily-advice-form">
+                            <div class="form-group">
+                                <input type="text" id="advice-title" placeholder="Enter advice title..." required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="advice-content" placeholder="Write your daily health advice here..." rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <select id="advice-category">
+                                    <option value="">Select Category</option>
+                                    <option value="nutrition">🥗 Nutrition</option>
+                                    <option value="exercise">🏃‍♂️ Exercise</option>
+                                    <option value="wellness">🧘‍♀️ Wellness</option>
+                                    <option value="lifestyle">🌱 Lifestyle</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary bounce-on-hover">
+                                <i class="fas fa-paper-plane"></i>
+                                Post Advice
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity-section">
+                <div class="activity-card fade-in">
+                    <div class="activity-header">
+                        <div class="activity-icon rotate-on-hover">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="activity-title">
+                            <h3>Recent Activity</h3>
+                            <span class="activity-date">Today, July 27, 2025</span>
+                        </div>
+                    </div>
+                    <div class="activity-content">
+                        <div class="activity-list">
+                            <div class="activity-item slide-in">
+                                <i class="fas fa-video text-success"></i>
+                                <span>Video consultation with John Smith completed</span>
+                                <span class="time">2 hours ago</span>
+                            </div>
+                            <div class="activity-item slide-in" style="animation-delay: 0.1s;">
+                                <i class="fas fa-reply text-info"></i>
+                                <span>Answered query from Emma Davis about weight loss</span>
+                                <span class="time">4 hours ago</span>
+                            </div>
+                            <div class="activity-item slide-in" style="animation-delay: 0.2s;">
+                                <i class="fas fa-user-plus text-primary"></i>
+                                <span>New patient Michael Brown registered</span>
+                                <span class="time">6 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Earnings Section -->
+        <section id="earnings-section" class="content-section">
+            <div class="section-header">
+                <h2>Earnings & Analytics</h2>
+                <p>Track your income and performance metrics</p>
+            </div>
+
+            <div class="earnings-container">
+                <div class="earnings-stats">
+                    <div class="earnings-grid">
+                        <div class="earning-card total">
+                            <h3>Total Earnings</h3>
+                            <div class="amount">$15,320</div>
+                            <span class="period">This Year</span>
+                        </div>
+                        <div class="earning-card monthly">
+                            <h3>Monthly</h3>
+                            <div class="amount">$2,450</div>
+                            <span class="growth">+12% from last month</span>
+                        </div>
+                        <div class="earning-card weekly">
+                            <h3>This Week</h3>
+                            <div class="amount">$580</div>
+                            <span class="growth">+8% from last week</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="earnings-chart">
+                    <h3>Monthly Earnings Trend</h3>
+                    <div class="chart-container">
+                        <div class="chart-bars">
+                            <div class="bar" style="height: 60%;" data-value="$1,800">Jan</div>
+                            <div class="bar" style="height: 75%;" data-value="$2,100">Feb</div>
+                            <div class="bar" style="height: 85%;" data-value="$2,300">Mar</div>
+                            <div class="bar" style="height: 70%;" data-value="$1,950">Apr</div>
+                            <div class="bar" style="height: 90%;" data-value="$2,400">May</div>
+                            <div class="bar" style="height: 100%;" data-value="$2,650">Jun</div>
+                            <div class="bar" style="height: 95%;" data-value="$2,450">Jul</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patients Section -->
+        <section id="patients-section" class="content-section">
+            <div class="section-header">
+                <h2>My Patients</h2>
+                <p>Manage and monitor your patient's progress</p>
+            </div>
+
+            <div class="patients-container">
+                <div class="patients-filters">
+                    <div class="filter-group">
+                        <input type="text" placeholder="Search patients..." class="search-input">
+                        <select class="filter-select">
+                            <option value="all">All Patients</option>
+                            <option value="active">Active</option>
+                            <option value="new">New</option>
+                            <option value="follow-up">Follow-up Needed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="patients-grid">
+                    <div class="patient-card">
+                        <div class="patient-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Patient">
+                            <span class="status-indicator active"></span>
+                        </div>
+                        <div class="patient-info">
+                            <h4>John Smith</h4>
+                            <p>Weight Loss Program</p>
+                            <span class="last-visit">Last visit: 2 days ago</span>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-icon bounce-on-hover" title="Start Video Call"><i class="fas fa-video"></i></button>
+                            <button class="btn-icon bounce-on-hover" title="Send Message"><i class="fas fa-envelope"></i></button>
+                            <button class="btn-icon bounce-on-hover" title="View Profile"><i class="fas fa-user"></i></button>
+                            <button class="btn-icon bounce-on-hover" title="View Diet Plan" data-action="view-diet-plan"><i class="fas fa-utensils"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="patient-card">
+                        <div class="patient-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=150&h=150&fit=crop&crop=face" alt="Patient">
+                            <span class="status-indicator active"></span>
+                        </div>
+                        <div class="patient-info">
+                            <h4>Emma Davis</h4>
+                            <p>Muscle Gain Plan</p>
+                            <span class="last-visit">Last visit: 1 week ago</span>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-icon bounce-on-hover" title="Start Video Call"><i class="fas fa-video"></i></button>
+                            <button class="btn-icon bounce-on-hover" title="Send Message"><i class="fas fa-envelope"></i></button>
+                            <button class="btn-icon bounce-on-hover" title="View Profile"><i class="fas fa-user"></i></button>
+                            <button class="btn-icon bounce-on-hover" title="View Diet Plan" data-action="view-diet-plan"><i class="fas fa-utensils"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="patient-card">
+                        <div class="patient-avatar">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Patient">
+                            <span class="status-indicator inactive"></span>
+                        </div>
+                        <div class="patient-info">
+                            <h4>Michael Brown</h4>
+                            <p>General Nutrition</p>
+                            <span class="last-visit">Last visit: 3 weeks ago</span>
+                        </div>
+                        <div class="patient-actions">
+                            <button class="btn-icon bounce-on-hover" title="Start Video Call"><i class="fas fa-video"></i></button>
+                            <button class="btn-icon bounce-on-hover" title="Send Message"><i class="fas fa-envelope"></i></button>
+                            <button class="btn-icon bounce-on-hover" title="View Profile"><i class="fas fa-user"></i></button>
+                            <button class="btn-icon bounce-on-hover" title="View Diet Plan" data-action="view-diet-plan"><i class="fas fa-utensils"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Queries Section -->
+        <section id="queries-section" class="content-section">
+            <div class="section-header">
+                <h2>Patient Queries</h2>
+                <p>Review and respond to patient questions</p>
+            </div>
+
+            <div class="queries-container">
+                <div class="queries-filters">
+                    <div class="filter-tabs">
+                        <button class="tab-btn active" data-filter="all">All Queries</button>
+                        <button class="tab-btn" data-filter="pending">Pending</button>
+                        <button class="tab-btn" data-filter="answered">Answered</button>
+                        <button class="tab-btn" data-filter="urgent">Urgent</button>
+                    </div>
+                </div>
+
+                <div class="queries-list">
+                    <div class="query-card urgent">
+                        <div class="query-header">
+                            <div class="patient-info">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                <div>
+                                    <h4>Sarah Wilson</h4>
+                                    <span class="query-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="priority-badge urgent">Urgent</div>
+                        </div>
+                        <div class="query-content">
+                            <h5>Weight Loss Plateau Concern</h5>
+                            <p>Hi Doctor, I've been following my diet plan for 3 months but haven't seen any weight loss in the past 2 weeks. I'm getting worried...</p>
+                        </div>
+                        <div class="query-actions">
+                            <button class="btn-primary">Respond</button>
+                            <button class="btn-secondary">Schedule Call</button>
+                        </div>
+                    </div>
+
+                    <div class="query-card pending">
+                        <div class="query-header">
+                            <div class="patient-info">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                <div>
+                                    <h4>David Lee</h4>
+                                    <span class="query-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="priority-badge medium">Medium</div>
+                        </div>
+                        <div class="query-content">
+                            <h5>Supplement Recommendations</h5>
+                            <p>What supplements would you recommend for better energy and metabolism? I'm currently taking a multivitamin...</p>
+                        </div>
+                        <div class="query-actions">
+                            <button class="btn-primary">Respond</button>
+                            <button class="btn-secondary">Schedule Call</button>
+                        </div>
+                    </div>
+
+                    <div class="query-card answered">
+                        <div class="query-header">
+                            <div class="patient-info">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                <div>
+                                    <h4>Lisa Garcia</h4>
+                                    <span class="query-time">2 days ago</span>
+                                </div>
+                            </div>
+                            <div class="priority-badge answered">Answered</div>
+                        </div>
+                        <div class="query-content">
+                            <h5>Vegetarian Meal Plan</h5>
+                            <p>Could you help me create a vegetarian meal plan for muscle building? I work out 4-5 times a week...</p>
+                        </div>
+                        <div class="query-actions">
+                            <button class="btn-secondary">View Response</button>
+                            <button class="btn-secondary">Follow Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation Section -->
+        <section id="consultation-section" class="content-section">
+            <div class="section-header">
+                <h2>Video Consultations</h2>
+                <p>Manage your consultation schedule and conduct sessions</p>
+            </div>
+
+            <div class="consultation-container">
+                <div class="consultation-tabs">
+                    <button class="tab-btn active" data-tab="schedule">Today's Schedule</button>
+                    <button class="tab-btn" data-tab="upcoming">Upcoming</button>
+                    <button class="tab-btn" data-tab="completed">Completed</button>
+                    <button class="tab-btn" data-tab="chat">Chat Support</button>
+                </div>
+
+                <div class="schedule-content">
+                    <div class="schedule-list">
+                        <div class="consultation-card upcoming">
+                            <div class="consultation-time">
+                                <div class="time">2:00 PM</div>
+                                <div class="duration">30 min</div>
+                            </div>
+                            <div class="consultation-info">
+                                <div class="patient-details">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                    <div>
+                                        <h4>John Smith</h4>
+                                        <p>Follow-up Consultation</p>
+                                    </div>
+                                </div>
+                                <div class="consultation-status">
+                                    <span class="status-badge upcoming">Upcoming</span>
+                                </div>
+                            </div>
+                            <div class="consultation-actions">
+                                <button class="btn-primary">Join Call</button>
+                                <button class="btn-secondary">Reschedule</button>
+                            </div>
+                        </div>
+
+                        <div class="consultation-card upcoming">
+                            <div class="consultation-time">
+                                <div class="time">3:30 PM</div>
+                                <div class="duration">45 min</div>
+                            </div>
+                            <div class="consultation-info">
+                                <div class="patient-details">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                    <div>
+                                        <h4>Emma Davis</h4>
+                                        <p>Initial Consultation</p>
+                                    </div>
+                                </div>
+                                <div class="consultation-status">
+                                    <span class="status-badge upcoming">Upcoming</span>
+                                </div>
+                            </div>
+                            <div class="consultation-actions">
+                                <button class="btn-primary">Join Call</button>
+                                <button class="btn-secondary">Reschedule</button>
+                            </div>
+                        </div>
+
+                        <div class="consultation-card completed">
+                            <div class="consultation-time">
+                                <div class="time">10:00 AM</div>
+                                <div class="duration">30 min</div>
+                            </div>
+                            <div class="consultation-info">
+                                <div class="patient-details">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                    <div>
+                                        <h4>Michael Brown</h4>
+                                        <p>Progress Review</p>
+                                    </div>
+                                </div>
+                                <div class="consultation-status">
+                                    <span class="status-badge completed">Completed</span>
+                                </div>
+                            </div>
+                            <div class="consultation-actions">
+                                <button class="btn-secondary">View Notes</button>
+                                <button class="btn-secondary">Schedule Follow-up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-start-consultation">
+                    <h3>Quick Start Consultation</h3>
+                    <p>Start an impromptu consultation with any of your patients</p>
+                    <button class="btn-primary bounce-on-hover">
+                        <i class="fas fa-video"></i>
+                        Start Now
+                    </button>
+                </div>
+
+                <!-- Chat Support Tab Content -->
+                <div class="chat-support-section" id="chat-tab-content" style="display: none;">
+                    <div class="chat-interface">
+                        <div class="active-chats">
+                            <h3>Active Chats</h3>
+                            <div class="chat-list">
+                                <div class="chat-item active pulse-glow">
+                                    <div class="chat-avatar">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                        <span class="online-indicator"></span>
+                                    </div>
+                                    <div class="chat-info">
+                                        <h4>John Smith</h4>
+                                        <p>Last message: Thank you for the advice!</p>
+                                        <span class="chat-time">2 min ago</span>
+                                    </div>
+                                    <div class="unread-count bounce">3</div>
+                                </div>
+
+                                <div class="chat-item">
+                                    <div class="chat-avatar">
+                                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                        <span class="online-indicator"></span>
+                                    </div>
+                                    <div class="chat-info">
+                                        <h4>Emma Davis</h4>
+                                        <p>Is it okay to have protein after workout?</p>
+                                        <span class="chat-time">1 hour ago</span>
+                                    </div>
+                                    <div class="unread-count bounce">1</div>
+                                </div>
+
+                                <div class="chat-item">
+                                    <div class="chat-avatar">
+                                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                    </div>
+                                    <div class="chat-info">
+                                        <h4>Michael Brown</h4>
+                                        <p>Diet plan is working great!</p>
+                                        <span class="chat-time">3 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-window">
+                            <div class="chat-header">
+                                <div class="chat-user-info">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face" alt="Patient">
+                                    <div>
+                                        <h4>John Smith</h4>
+                                        <span class="status">Online</span>
+                                    </div>
+                                </div>
+                                <div class="chat-actions">
+                                    <button class="btn-icon" title="Video Call"><i class="fas fa-video"></i></button>
+                                    <button class="btn-icon" title="Voice Call"><i class="fas fa-phone"></i></button>
+                                </div>
+                            </div>
+
+                            <div class="chat-messages">
+                                <div class="message patient-message slide-in">
+                                    <div class="message-content">
+                                        <p>Hi Doctor! I've been following the diet plan for 2 weeks now. Should I continue with the same portion sizes?</p>
+                                        <span class="message-time">10:30 AM</span>
+                                    </div>
+                                </div>
+
+                                <div class="message expert-message slide-in" style="animation-delay: 0.3s;">
+                                    <div class="message-content">
+                                        <p>Great to hear from you! Yes, continue with the same portions for now. How are you feeling energy-wise?</p>
+                                        <span class="message-time">10:32 AM</span>
+                                    </div>
+                                </div>
+
+                                <div class="message patient-message slide-in" style="animation-delay: 0.6s;">
+                                    <div class="message-content">
+                                        <p>Much better! Energy levels are stable throughout the day. Thank you for the guidance!</p>
+                                        <span class="message-time">10:35 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chat-input-area">
+                                <div class="message-input">
+                                    <input type="text" placeholder="Type your message..." id="chat-input">
+                                    <button class="send-btn bounce-on-hover" id="send-message">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile-section" class="content-section">
+            <div class="section-header">
+                <h2>Expert Profile</h2>
+                <p>Manage your professional profile and credentials</p>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&crop=face" alt="Profile Picture" id="profile-picture">
+                            <button class="avatar-edit-btn" id="avatar-edit-btn">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                            <input type="file" id="avatar-input" accept="image/*" hidden>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profile-name">Dr. Sarah Johnson</h3>
+                            <p id="profile-email">dr.sarah@nutribaba.com</p>
+                            <span class="profile-status">Certified Nutritionist</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="personal">Personal Info</button>
+                        <button class="tab-btn" data-tab="credentials">Credentials</button>
+                        <button class="tab-btn" data-tab="settings">Settings</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Personal Info Tab -->
+                        <div class="tab-panel active" id="personal-tab">
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" id="full-name" value="Dr. Sarah Johnson">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="email" value="dr.sarah@nutribaba.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" id="phone" value="+1 (555) 789-0123">
+                                </div>
+                                <div class="form-group">
+                                    <label>Specialization</label>
+                                    <input type="text" id="specialization" value="Weight Management & Sports Nutrition">
+                                </div>
+                                <div class="form-group">
+                                    <label>Years of Experience</label>
+                                    <input type="number" id="experience" value="8">
+                                </div>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+
+                        <!-- Credentials Tab -->
+                        <div class="tab-panel" id="credentials-tab">
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label>License Number</label>
+                                    <input type="text" id="license" value="RD-2024-7890">
+                                </div>
+                                <div class="form-group">
+                                    <label>Education</label>
+                                    <textarea id="education" rows="3">Masters in Nutrition Science, Harvard University
+Bachelor in Dietetics, Stanford University</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Certifications</label>
+                                    <textarea id="certifications" rows="3">Certified Nutrition Specialist (CNS)
+Sports Nutrition Certification
+Weight Management Specialist</textarea>
+                                </div>
+                                <button type="submit" class="btn-primary">Update Credentials</button>
+                            </form>
+                        </div>
+
+                        <!-- Settings Tab -->
+                        <div class="tab-panel" id="settings-tab">
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label>Consultation Rate (per hour)</label>
+                                    <input type="number" id="rate" value="150">
+                                </div>
+                                <div class="form-group">
+                                    <label>Working Hours</label>
+                                    <div class="time-inputs">
+                                        <input type="time" id="start-time" value="09:00">
+                                        <span>to</span>
+                                        <input type="time" id="end-time" value="17:00">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Notification Preferences</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" checked>
+                                            <span>New patient queries</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox" checked>
+                                            <span>Appointment reminders</span>
+                                        </label>
+                                        <label class="checkbox-item">
+                                            <input type="checkbox">
+                                            <span>Payment notifications</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-primary">Save Settings</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Diet Plan Modal -->
+    <div class="modal-overlay" id="diet-plan-modal">
+        <div class="modal-content diet-plan-modal slide-down">
+            <div class="modal-header">
+                <h3><i class="fas fa-utensils"></i> Patient Diet Plan</h3>
+                <button class="close-btn" onclick="closeDietPlanModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="patient-diet-info">
+                    <div class="diet-patient-header">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Patient" id="diet-patient-avatar">
+                        <div class="diet-patient-details">
+                            <h4 id="diet-patient-name">John Smith</h4>
+                            <p id="diet-patient-plan">Weight Loss Program</p>
+                            <span id="diet-plan-duration">4 weeks plan</span>
+                        </div>
+                    </div>
+
+                    <div class="diet-plan-content">
+                        <div class="meal-schedule">
+                            <div class="meal-item fade-in">
+                                <div class="meal-time">
+                                    <i class="fas fa-sun"></i>
+                                    <span>Breakfast (7:00 AM)</span>
+                                </div>
+                                <div class="meal-details">
+                                    <p>🥣 Oatmeal with berries and almonds</p>
+                                    <p>🥛 Green tea</p>
+                                    <span class="calories">~350 cal</span>
+                                </div>
+                            </div>
+
+                            <div class="meal-item fade-in" style="animation-delay: 0.1s;">
+                                <div class="meal-time">
+                                    <i class="fas fa-apple-alt"></i>
+                                    <span>Mid-Morning (10:00 AM)</span>
+                                </div>
+                                <div class="meal-details">
+                                    <p>🍎 Apple with 10 almonds</p>
+                                    <span class="calories">~150 cal</span>
+                                </div>
+                            </div>
+
+                            <div class="meal-item fade-in" style="animation-delay: 0.2s;">
+                                <div class="meal-time">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Lunch (1:00 PM)</span>
+                                </div>
+                                <div class="meal-details">
+                                    <p>🥗 Grilled chicken salad with quinoa</p>
+                                    <p>🥤 Water with lemon</p>
+                                    <span class="calories">~450 cal</span>
+                                </div>
+                            </div>
+
+                            <div class="meal-item fade-in" style="animation-delay: 0.3s;">
+                                <div class="meal-time">
+                                    <i class="fas fa-cookie-bite"></i>
+                                    <span>Evening Snack (4:00 PM)</span>
+                                </div>
+                                <div class="meal-details">
+                                    <p>🥜 Mixed nuts (handful)</p>
+                                    <span class="calories">~100 cal</span>
+                                </div>
+                            </div>
+
+                            <div class="meal-item fade-in" style="animation-delay: 0.4s;">
+                                <div class="meal-time">
+                                    <i class="fas fa-moon"></i>
+                                    <span>Dinner (7:00 PM)</span>
+                                </div>
+                                <div class="meal-details">
+                                    <p>🐟 Baked salmon with steamed vegetables</p>
+                                    <p>🍚 Brown rice (small portion)</p>
+                                    <span class="calories">~400 cal</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="diet-summary">
+                            <div class="summary-stats">
+                                <div class="stat">
+                                    <span class="label">Total Calories</span>
+                                    <span class="value">1,450</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Protein</span>
+                                    <span class="value">85g</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Carbs</span>
+                                    <span class="value">120g</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Fat</span>
+                                    <span class="value">45g</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeDietPlanModal()">Close</button>
+                <button class="btn-primary bounce-on-hover">Edit Plan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="expert-dashboard-new.js"></script>
+</body>
+</html>
